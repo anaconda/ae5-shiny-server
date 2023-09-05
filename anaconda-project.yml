@@ -1,0 +1,4 @@
+name: Shiny Server Installer
+description: A project for installing Shiny Server into AE5.
+env_specs:
+  anaconda50_r: {}
