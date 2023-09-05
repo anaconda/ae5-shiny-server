@@ -71,7 +71,7 @@ AE5 session. So to begin the process, we complete the following steps:
 ### Step 3. Obtain the Shiny Server binaries
 
 The files we need to install Shiny Server are RPM files hosted on the
-site `download2.rstudio.org`, and these must be pulled into the project
+site `download3.rstudio.org`, and these must be pulled into the project
 session.  Below are three different methods for accomplishing this.
 
 [ TODO: ONLY ONE METHOD CURRENTLY DESCRIBED ]
@@ -87,4 +87,24 @@ definitely the best approach.
 3. Run the command `bash download_shiny_server.sh`
 
 If the script completes successfully, you will have the binaries
-you need to proceed to step 4.
+you need to proceed to step 4. The output of the script will
+look something like this:
+
+```
++-----------------------------+
+| AE5 Shiny Server Downloader |
++-----------------------------+
+- Target version: 1.5.20.1002
+- Downloading into the data directory
+- Downloading CentOS7 RPM file to data/ss-centos7.rpm
+- URL: https://download3.rstudio.org/centos7/x86_64/shiny-server-1.5.20.1002-x86_64.rpm
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 65.6M  100 65.6M    0     0  98.9M      0 --:--:-- --:--:-- --:--:-- 98.9M
+- Verifying data/ss-centos7.rpm
++------------------------+
+The Shiny Server binaries have been downloaded.
+You may now proceed with the installation step.
+See the README.md file for more details.
++------------------------+
+```
