@@ -108,3 +108,16 @@ You may now proceed with the installation step.
 See the README.md file for more details.
 +------------------------+
 ```
+
+### Step 4. Run the installation script
+
+Once the file `ss-centos7.rpm` is in place, the actual installation can proceed.
+
+1. Launch a terminal window, or return to an existing one.
+2. If you have previously installed content into `/tools/shiny-server`,
+   remove it now. The script will not proceed if there is any
+   content in that directory. For simplicity, you can remove
+   the entire directory; e.g., `rm -r /tools/shiny-server`.
+3. Run the command `bash install_shiny_server.sh`. Before performing
+   any modifications, the script verifies that all of its
+   prerequisites are met.
