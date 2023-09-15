@@ -1,11 +1,10 @@
 import sys
 import os
-import shutil
 
 from argparse import ArgumentParser
 from jinja2 import Template
 
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 TOOL_DIR = '/tools/shiny-server'
 CONF_FILENAME = 'shiny-server.conf'
 CONF_TEMPLATE_FILENAME = 'shiny-server.conf.jinja2'
@@ -63,11 +62,11 @@ def main():
         print(f"Using configuration file {conf_path}")
 
     if not args.disable_execution:
-        shutil.copytree('shiny', './data/shiny') # IMPROVE
         os.system(f'{SERVER_BINARY} {conf_path}')
     else:
         print('-- EXECUTION COMMAND --\n')
         print(f'{SERVER_BINARY} {conf_path}')
+
 
 def render_template(template_filepath, args): # '/opt/continuum/data/shiny'
     # Only template in if not None - assume template contain suitable defaults

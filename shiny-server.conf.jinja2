@@ -19,10 +19,10 @@ server {
 
     # Run this location in 'site_dir' mode, which hosts the entire directory
     #site_dir /opt/continuum/project/shiny;
-    site_dir {{site_dir | default('/opt/continuum/data/shiny')}};
+    site_dir {{site_dir | default('/opt/continuum/project')}};
 
     # Define where we should put the log files for this location
-    log_dir {{log_dir | default('/var/log/shiny-server')}};
+    log_dir {{log_dir | default('/opt/continuum/shiny-server-logs')}};
 
     # Should we list the contents of a (non-Shiny-App) directory when the user
     # visits the corresponding URL?
