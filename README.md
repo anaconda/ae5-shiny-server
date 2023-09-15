@@ -121,3 +121,42 @@ Once the file `ss-centos7.rpm` is in place, the actual installation can proceed.
 3. Run the command `bash install_shiny_server.sh`. Before performing
    any modifications, the script verifies that all of its
    prerequisites are met.
+
+### Step 5. Usage
+
+In your AE5 project, add `ae5_shiny_server` to the `packages` list and
+`jlstevens` to the `channels` list. Then when this package is installed,
+you will have access to the `ae5_shiny_server` command which you can use
+in a `unix` command.
+
+Here is a simple example of a suitable `anaconda-project.yml`:
+
+
+```yaml
+name: Example
+
+description: Example that runs Shiny server in an R environment
+
+packages:
+  - r-base
+  - r-argparse
+  - r-shiny
+  - ae5_shiny_server
+
+platforms:
+  - linux-64
+  
+commands:
+  default:
+    unix: shiny_server
+
+env_specs:
+  default: {}
+  
+channels:
+  - r
+  - jlstevens
+```
+
+For more information about the `shiny_server` command, run `shiny_server
+--help` in the terminal.
