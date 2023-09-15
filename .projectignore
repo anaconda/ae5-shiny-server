@@ -9,6 +9,7 @@ __pycache__/
 
 # Notebook stuff
 .ipynb_checkpoints/
+project-snapshot/
 
 # Spyder stuff
 /.spyderproject
