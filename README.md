@@ -158,5 +158,9 @@ channels:
   - jlstevens
 ```
 
+By default, the top-level project directory is served but you can point
+to any particular directory containing your shiny apps by passing the
+`--site-dir` option to the `shiny_server` command.
+
 For more information about the `shiny_server` command, run `shiny_server
 --help` in the terminal.
