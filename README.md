@@ -13,6 +13,11 @@ followed first. See the document
 for more details, and make sure that work is completed before proceeding
 with the instructions here.
 
+
+The project archive of this repository which you will need for the
+installation can be found
+[here](https://github.com/Anaconda-Platform/ae5-shiny-server/raw/main/project-snapshot/ae5-shiny-server.tar.gz)
+
 ## Installation
 
 We have broken the installation process into the following steps:
