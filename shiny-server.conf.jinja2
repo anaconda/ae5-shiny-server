@@ -1,0 +1,31 @@
+# Define the user we should use when spawning R Shiny processes
+run_as {{username}};
+
+# Define a top-level server which will listen on a port
+server {
+  # Instruct this server to listen on port 8086 at address 0.0.0.0
+  listen 8086 0.0.0.0; 
+
+  bookmark_state_dir {{bookmark_state_dir | default('/opt/continuum/data')}};
+
+  # Define the location available at the base URL
+  location / {
+    #### PRO ONLY ####
+    # Only up tp 20 connections per Shiny process and at most 3 Shiny processes
+    # per application. Proactively spawn a new process when our processes reach
+    # 90% capacity.
+    # utilization_scheduler 20 .9 3;
+    #### END PRO ONLY ####
+
+    # Run this location in 'site_dir' mode, which hosts the entire directory
+    #site_dir /opt/continuum/project/shiny;
+    site_dir {{site_dir | default('/opt/continuum/data/shiny')}};
+
+    # Define where we should put the log files for this location
+    log_dir {{log_dir | default('/var/log/shiny-server')}};
+
+    # Should we list the contents of a (non-Shiny-App) directory when the user
+    # visits the corresponding URL?
+    directory_index on;
+  }
+}
