@@ -15,9 +15,9 @@ fi
 # TODO: RStudio downloader handles CentOS 7 and 8 downloads for older R. Needed for shiny?
 # Currently using CentOS 7
 
-fname=${fdir}rs-centos7.rpm
+fname=${fdir}ss-centos7.rpm
 echo "- Downloading CentOS7 RPM file to $fname"
-url=https://download3.rstudio.org/server/centos7/x86_64/shiny-server-${SHINY_VERSION}-x86_64.rpm
+url=https://download3.rstudio.org/centos7/x86_64/shiny-server-${SHINY_VERSION}-x86_64.rpm
 echo "- URL: $url"
 
 if ! curl -o $fname -L $url; then

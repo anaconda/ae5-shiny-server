@@ -75,8 +75,10 @@ cd $SHINY_SERVER_PREFIX/staging7 && cpio -id < $SHINY_SERVER_PREFIX/staging7/ss-
 
 echo "- Moving files into final position"
 mv $SHINY_SERVER_PREFIX/staging7/opt/shiny-server/* $SHINY_SERVER_PREFIX
-rm -rf $RSTUDIO_PREFIX/staging7
+rm -rf $SHINY_SERVER_PREFIX/staging7
 
+echo "- Installing support files"
+cp /opt/continuum/project/shiny-server.conf.jinja2  $SHINY_SERVER_PREFIX
 
 echo "+-----------------------+"
 echo "Shiny Server installation is complete."
