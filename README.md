@@ -158,6 +158,9 @@ channels:
   - jlstevens
 ```
 
+This project definition is sufficient to run the `basic` application in
+the `app-examples` directory.
+
 By default, the top-level project directory is served but you can point
 to any particular directory containing your shiny apps by passing the
 `--site-dir` option to the `shiny_server` command.
