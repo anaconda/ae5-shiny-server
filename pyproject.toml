@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ae5_shiny_server"
+description = "Utility to run shiny server in AE5"
+version = "0.0.3"
+dependencies = ["jinja2"]
+requires-python = ">=3"
+
+[project.scripts]
+shiny_server = "ae5_shiny_server:main"

@@ -1,0 +1,23 @@
+package:
+  name: ae5_shiny_server
+  version: 0.0.3
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
+
+requirements:
+  build:
+    - python
+    - hatchling
+  run:
+    - python
+    - jinja2
+    
+test:
+  imports:
+    - ae5_shiny_server
