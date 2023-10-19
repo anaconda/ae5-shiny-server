@@ -188,7 +188,7 @@ env_specs:
   
 channels:
   - r
-  - jlstevens
+  - https://conda.anaconda.org/services
 ```
 
 This project definition is sufficient to run the `basic` application in
