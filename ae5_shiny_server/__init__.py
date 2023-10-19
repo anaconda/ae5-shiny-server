@@ -4,7 +4,7 @@ import os
 from argparse import ArgumentParser
 from jinja2 import Template
 
-__version__ = '0.0.4'
+__version__ = '0.0.5'
 
 TOOL_DIR = '/tools/shiny-server'
 ENV_DIR = '/opt/continuum/envs/shiny_server'
