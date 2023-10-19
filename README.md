@@ -39,6 +39,10 @@ from deployments. For this reason, you will need to install to
 administrator credentials to ensure write permission). This change of
 directory is important in Step 4 ('Run the installation script').
 
+With this approach, we are installing Shiny Server to the same location
+used to store AE5 [custom conda
+environments](https://enterprise-docs.anaconda.com/en/latest/admin/custom_env_proj.html?highlight=envs#uploading-your-custom-environment).
+
 
 ***5.5.2+:*** skip this step and proceed directly to step 2.
 
