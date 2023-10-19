@@ -174,7 +174,7 @@ packages:
   - r-base
   - r-argparse
   - r-shiny
-  - ae5_shiny_server
+  - ae5_shiny_server=0.0.5
 
 platforms:
   - linux-64
