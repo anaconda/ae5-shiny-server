@@ -12,16 +12,10 @@ elif ! grep -q /tools/ /opt/continuum/scripts/start_user.sh; then
     exit -1
 elif [ -z "$SHINY_SERVER_PREFIX" ]; then
     SHINY_SERVER_PREFIX=/tools/shiny-server
-elif [ $SHINY_SERVER_PREFIX = /tools/shiny-server ]; then
-    :
-else
-    echo "ERROR: Shiny Server must be installed in /tools/shiny-server"
-    exit -1
 fi
 
-
 SHINY_SERVER_PARENT=$(dirname $SHINY_SERVER_PREFIX)
-if [[ -d $SHINY_SERVER_PREFIX || $SHINY_SERVER_PREFIX != /tools/shiny-server ]]; then
+if [[ -d $SHINY_SERVER_PREFIX ]]; then
     if [ ! -d $SHINY_SERVER_PREFIX ]; then
         echo "The directory $SHINY_SERVER_PREFIX is missing. Please add this volume"
         echo "to your configuration, then stop and restart this session."
@@ -53,7 +47,6 @@ if [[ ! -f ss-centos7.rpm && ! -f data/ss-centos7.rpm ]]; then
     echo 'directions in README.md to bring these binaries into the project.'
     exit -1
 fi
-
 
 fname=ss-centos7.rpm
 [ -f $fname ] || fname=data/$fname
