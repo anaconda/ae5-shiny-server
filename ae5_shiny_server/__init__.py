@@ -5,10 +5,25 @@ from argparse import ArgumentParser
 from jinja2 import Template
 
 __version__ = '0.0.4'
+
 TOOL_DIR = '/tools/shiny-server'
+ENV_DIR = '/opt/continuum/envs/shiny_server'
+
+INSTALL_DIR = None
+for directory in [TOOL_DIR, ENV_DIR]:
+    binary_path = os.path.join(directory, 'bin', 'shiny-server')
+    if os.path.isfile(binary_path):
+        INSTALL_DIR = directory
+        SERVER_BINARY = binary_path
+        break
+
+if INSTALL_DIR is None:
+    print(f'Could not find shiny server binary in either {TOOL_DIR} or {ENV_DIR}')
+    sys.exit(-1)
+
 CONF_FILENAME = 'shiny-server.conf'
 CONF_TEMPLATE_FILENAME = 'shiny-server.conf.jinja2'
-SERVER_BINARY = os.path.join(TOOL_DIR, 'bin', 'shiny-server')
+SERVER_BINARY = os.path.join(INSTALL_DIR, 'bin', 'shiny-server')
 
 def main():
     parser = ArgumentParser(prog="shiny_server",
@@ -17,7 +32,7 @@ def main():
                         help=('Path to server config file to use directly. '
                               'Overrides all other options'))
     parser.add_argument('--conf-template', action='store',
-                        default=os.path.join(TOOL_DIR,  CONF_TEMPLATE_FILENAME), type=str,
+                        default=os.path.join(INSTALL_DIR,  CONF_TEMPLATE_FILENAME), type=str,
                         help='Path to server config template file')
     parser.add_argument('--conf-render-dir', action='store',
                         default='/opt/continuum/project/shiny-server.conf', type=str,
