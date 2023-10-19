@@ -13,7 +13,6 @@ followed first. See the document
 for more details, and make sure that work is completed before proceeding
 with the instructions here.
 
-
 The project archive of this repository which you will need for the
 installation can be found
 [here](https://github.com/Anaconda-Platform/ae5-shiny-server/raw/main/project-snapshot/ae5-shiny-server.tar.gz)
@@ -22,16 +21,24 @@ installation can be found
 
 We have broken the installation process into the following steps:
 
-1. Set the tool volume to read-write. (5.5.1 only).
+1. Set the destination volume to read-write.
 2. Launch the Shiny Server installation project.
 3. Obtain the Shiny Server server binaries.
 4. Run the installation script.
 
 
-### Step 1. Set the tool volume to read-write (5.5.1)
+### Step 1. Set the destination volume to read-write (5.5.1)
 
-These instructions are identical to the Step 1 [instructions
+To use the `/tools` directory (AE5 > 5.6.0) these instructions are identical to the
+Step 1 [instructions
 here](https://github.com/Anaconda-Platform/ae5-rstudio#step-1-set-the-tool-volume-to-read-write-551)
+
+For AE5 <= 5.6.0 (but >= 5.5.1), the `/tools` directory is not visible
+from deployments. For this reason, you will need to install to
+`/opt/continuum/envs/shiny_server` instead (make sure to log in with
+administrator credentials to ensure write permission). This change of
+directory is important in Step 4 ('Run the installation script').
+
 
 ***5.5.2+:*** skip this step and proceed directly to step 2.
 
@@ -118,6 +125,8 @@ See the README.md file for more details.
 
 Once the file `ss-centos7.rpm` is in place, the actual installation can proceed.
 
+If you are installing to the `/tools` directory:
+
 1. Launch a terminal window, or return to an existing one.
 2. If you have previously installed content into `/tools/shiny-server`,
    remove it now. The script will not proceed if there is any
@@ -126,6 +135,21 @@ Once the file `ss-centos7.rpm` is in place, the actual installation can proceed.
 3. Run the command `bash install_shiny_server.sh`. Before performing
    any modifications, the script verifies that all of its
    prerequisites are met.
+
+If you are installing to the `/opt/continuum/envs`:
+
+1. Launch a terminal window, or return to an existing one. Make sure you
+   are logged in using an administrator account (e.g. `anaconda-enterprise`).
+2. If you have previously installed content into `/opt/continuum/envs/shiny_server`,
+   remove it now. The script will not proceed if there is any
+   content in that directory. For simplicity, you can remove
+   the entire directory; e.g., `rm -r /opt/continuum/envs/shiny_server`.
+3. Run the following command which specifies the installation location
+   and verifies that all of its prerequisites are met:
+
+```
+SHINY_SERVER_PREFIX=/opt/continuum/envs/shiny_server bash install_shiny_server.sh
+```
 
 ### Step 5. Usage
 
