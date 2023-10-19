@@ -9,23 +9,24 @@ __version__ = '0.0.5'
 TOOL_DIR = '/tools/shiny-server'
 ENV_DIR = '/opt/continuum/envs/shiny_server'
 
-INSTALL_DIR = None
-for directory in [TOOL_DIR, ENV_DIR]:
-    binary_path = os.path.join(directory, 'bin', 'shiny-server')
-    if os.path.isfile(binary_path):
-        INSTALL_DIR = directory
-        SERVER_BINARY = binary_path
-        break
-
-if INSTALL_DIR is None:
-    print(f'Could not find shiny server binary in either {TOOL_DIR} or {ENV_DIR}')
-    sys.exit(-1)
-
 CONF_FILENAME = 'shiny-server.conf'
 CONF_TEMPLATE_FILENAME = 'shiny-server.conf.jinja2'
-SERVER_BINARY = os.path.join(INSTALL_DIR, 'bin', 'shiny-server')
 
 def main():
+    INSTALL_DIR = None
+    for directory in [TOOL_DIR, ENV_DIR]:
+        binary_path = os.path.join(directory, 'bin', 'shiny-server')
+        if os.path.isfile(binary_path):
+            INSTALL_DIR = directory
+            SERVER_BINARY = binary_path
+            break
+
+    if INSTALL_DIR is None:
+        print(f'Could not find shiny server binary in either {TOOL_DIR} or {ENV_DIR}')
+        sys.exit(-1)
+
+    SERVER_BINARY = os.path.join(INSTALL_DIR, 'bin', 'shiny-server')
+
     parser = ArgumentParser(prog="shiny_server",
                             description="Utility to run shiny server in AE5")
     parser.add_argument('--conf', action='store', default=None, type=str,
